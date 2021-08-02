@@ -1,0 +1,6 @@
+webdrivermanager
+robotframework==3.2.2
+robotframework-seleniumlibrary==5.1.1
+robotframework-pabot==1.11
+robotframework-imaplibrary2==0.4.0
+requests

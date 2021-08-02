@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.5 on win32)" generated="20210728 14:23:07.040" rpa="false">
+<suite id="s1" name="Login" source="F:\Anik Working Demo Directory\Daraz-Robot Framework\test_functional\01__init\01__login.robot">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn" type="setup">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_LOGIN}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Open Application</arg>
+</arguments>
+<kw name="Open Application" library="login_keywords">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${DOCKER}==False</arg>
+<arg>Run Keywords</arg>
+<arg>Open browser</arg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>${browser_alias}</arg>
+<arg>AND</arg>
+<arg>Set Window Size</arg>
+<arg>1800</arg>
+<arg>1400</arg>
+</arguments>
+<kw name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>Open browser</arg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>${browser_alias}</arg>
+<arg>AND</arg>
+<arg>Set Window Size</arg>
+<arg>1800</arg>
+<arg>1400</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>${browser_alias}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.380" endtime="20210728 14:23:07.380"></status>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<arguments>
+<arg>1800</arg>
+<arg>1400</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.380" endtime="20210728 14:23:07.380"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.380" endtime="20210728 14:23:07.380"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.380" endtime="20210728 14:23:07.380"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${DOCKER}==True</arg>
+<arg>Run Keywords</arg>
+<arg>Chrome_Setup</arg>
+<arg>${browser_alias}</arg>
+<arg>AND</arg>
+<arg>Go To</arg>
+<arg>${URL}</arg>
+</arguments>
+<kw name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>Chrome_Setup</arg>
+<arg>${browser_alias}</arg>
+<arg>AND</arg>
+<arg>Go To</arg>
+<arg>${URL}</arg>
+</arguments>
+<kw name="Chrome_Setup" library="login_keywords">
+<doc>DO NOT REMOVE - Google Chrome for Robotframework in Docker</doc>
+<arguments>
+<arg>${browser_alias}</arg>
+</arguments>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+</arguments>
+<assign>
+<var>${browser_options}</var>
+</assign>
+<status status="NOT_RUN" starttime="20210728 14:23:07.381" endtime="20210728 14:23:07.381"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${browser_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.381" endtime="20210728 14:23:07.381"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${browser_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.381" endtime="20210728 14:23:07.381"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${browser_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-gpu</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.382" endtime="20210728 14:23:07.382"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${browser_options}</arg>
+<arg>add_argument</arg>
+<arg>--window-size\=1800,1400</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.382" endtime="20210728 14:23:07.382"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${browser_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.382" endtime="20210728 14:23:07.382"></status>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>Chrome</arg>
+<arg>chrome_options=${browser_options}</arg>
+<arg>alias=${browser_alias}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.382" endtime="20210728 14:23:07.382"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.381" endtime="20210728 14:23:07.382"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.382" endtime="20210728 14:23:07.382"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.381" endtime="20210728 14:23:07.382"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.380" endtime="20210728 14:23:07.382"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${SELENIUM_SPEED}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.383" endtime="20210728 14:23:07.383"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.379" endtime="20210728 14:23:07.383"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.379" endtime="20210728 14:23:07.383"></status>
+</kw>
+<test id="s1-t1" name="TC05_HOME_Check_Login_Page_Opens_and_Contains_Greetings_Message">
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.5 seconds</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.384" endtime="20210728 14:23:07.384"></status>
+</kw>
+<kw name="Login Page Should Be Open" library="login_keywords">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_OP}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//div[@class="mod-login"]</arg>
+</arguments>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>xpath=//div[@class="mod-login"]</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.385" endtime="20210728 14:23:07.385"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.385" endtime="20210728 14:23:07.385"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.385" endtime="20210728 14:23:07.386"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>//h3[contains(text(),'Welcome to Daraz! Please login.')]</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.386" endtime="20210728 14:23:07.386"></status>
+</kw>
+<doc>Users are directed to login page and login page contains version number</doc>
+<tags>
+<tag>Login</tag>
+</tags>
+<status status="PASS" starttime="20210728 14:23:07.383" endtime="20210728 14:23:07.387" critical="yes"></status>
+</test>
+<test id="s1-t2" name="TC06_HOME_Invalid_Login">
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.2 seconds</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.392" endtime="20210728 14:23:07.392"></status>
+</kw>
+<kw name="Input Email" library="login_keywords">
+<arguments>
+<arg>${USEREMAIL}</arg>
+</arguments>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_OP}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Input Text</arg>
+<arg>${Login_User_Email_Field}</arg>
+<arg>${useremail}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${Login_User_Email_Field}</arg>
+<arg>${useremail}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.393" endtime="20210728 14:23:07.394"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.393" endtime="20210728 14:23:07.394"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.393" endtime="20210728 14:23:07.394"></status>
+</kw>
+<kw name="Input Password" library="login_keywords">
+<arguments>
+<arg>${Invalid_Password}</arg>
+</arguments>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_OP}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Input Text</arg>
+<arg>${Login_User_Pass_Field}</arg>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${Login_User_Pass_Field}</arg>
+<arg>${password}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.395" endtime="20210728 14:23:07.395"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.395" endtime="20210728 14:23:07.395"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.394" endtime="20210728 14:23:07.395"></status>
+</kw>
+<kw name="Continue" library="login_keywords">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_OP}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Click Button</arg>
+<arg>${Submit_Button}</arg>
+</arguments>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${Submit_Button}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.396" endtime="20210728 14:23:07.396"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.396" endtime="20210728 14:23:07.396"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.395" endtime="20210728 14:23:07.396"></status>
+</kw>
+<kw name="Verify Invalid Login Message" library="login_keywords">
+<arguments>
+<arg>${invalid_login_msg}</arg>
+</arguments>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_OP}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Page Should Contain Element</arg>
+<arg>//div[contains(text(),"${message}")]</arg>
+</arguments>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>//div[contains(text(),"${message}")]</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.397" endtime="20210728 14:23:07.397"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.397" endtime="20210728 14:23:07.397"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.397" endtime="20210728 14:23:07.397"></status>
+</kw>
+<doc>This is an Invalid Login scenario</doc>
+<tags>
+<tag>InvalidLogin</tag>
+<tag>Login</tag>
+</tags>
+<status status="PASS" starttime="20210728 14:23:07.391" endtime="20210728 14:23:07.398" critical="yes"></status>
+</test>
+<test id="s1-t3" name="TC_07_HOME_Log Out And Log In Again">
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.2 seconds</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.401" endtime="20210728 14:23:07.401"></status>
+</kw>
+<kw name="Go To Login Page" library="navigation_keywords">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.402" endtime="20210728 14:23:07.402"></status>
+</kw>
+<kw name="Login Page Should Be Open" library="login_keywords">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_OP}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//div[@class="mod-login"]</arg>
+</arguments>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>xpath=//div[@class="mod-login"]</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.403" endtime="20210728 14:23:07.403"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.402" endtime="20210728 14:23:07.403"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.402" endtime="20210728 14:23:07.403"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>${SHORT_DELAY}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.403" endtime="20210728 14:23:07.403"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.402" endtime="20210728 14:23:07.403"></status>
+</kw>
+<kw name="Input Email" library="login_keywords">
+<arguments>
+<arg>${USEREMAIL}</arg>
+</arguments>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_OP}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Input Text</arg>
+<arg>${Login_User_Email_Field}</arg>
+<arg>${useremail}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${Login_User_Email_Field}</arg>
+<arg>${useremail}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.404" endtime="20210728 14:23:07.404"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.404" endtime="20210728 14:23:07.404"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.403" endtime="20210728 14:23:07.404"></status>
+</kw>
+<kw name="Input Password" library="login_keywords">
+<arguments>
+<arg>${PASSWORD}</arg>
+</arguments>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_OP}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Input Text</arg>
+<arg>${Login_User_Pass_Field}</arg>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${Login_User_Pass_Field}</arg>
+<arg>${password}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.407" endtime="20210728 14:23:07.407"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.405" endtime="20210728 14:23:07.407"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.404" endtime="20210728 14:23:07.408"></status>
+</kw>
+<kw name="Continue" library="login_keywords">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_OP}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Click Button</arg>
+<arg>${Submit_Button}</arg>
+</arguments>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${Submit_Button}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.410" endtime="20210728 14:23:07.410"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.409" endtime="20210728 14:23:07.410"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.409" endtime="20210728 14:23:07.410"></status>
+</kw>
+<kw name="Welcome Page Should Be Open" library="login_keywords">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_OP}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//span[@id='myAccountTrigger']</arg>
+</arguments>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>xpath=//span[@id='myAccountTrigger']</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.411" endtime="20210728 14:23:07.411"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.411" endtime="20210728 14:23:07.411"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_OP}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Title Should Be</arg>
+<arg>${Manage_Account_title}</arg>
+</arguments>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current page title equals ``title``.</doc>
+<arguments>
+<arg>${Manage_Account_title}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.412" endtime="20210728 14:23:07.412"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.411" endtime="20210728 14:23:07.412"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.411" endtime="20210728 14:23:07.412"></status>
+</kw>
+<kw name="Log Out" library="login_keywords">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_OP}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Go To</arg>
+<arg>${daraz_logout}</arg>
+</arguments>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${daraz_logout}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.413" endtime="20210728 14:23:07.413"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.413" endtime="20210728 14:23:07.413"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.412" endtime="20210728 14:23:07.413"></status>
+</kw>
+<kw name="Go To Login Page" library="navigation_keywords">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.414" endtime="20210728 14:23:07.414"></status>
+</kw>
+<kw name="Login Page Should Be Open" library="login_keywords">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_OP}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//div[@class="mod-login"]</arg>
+</arguments>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>xpath=//div[@class="mod-login"]</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.415" endtime="20210728 14:23:07.415"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.415" endtime="20210728 14:23:07.415"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.414" endtime="20210728 14:23:07.415"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>${SHORT_DELAY}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.415" endtime="20210728 14:23:07.415"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.414" endtime="20210728 14:23:07.415"></status>
+</kw>
+<kw name="Input Email" library="login_keywords">
+<arguments>
+<arg>${USEREMAIL}</arg>
+</arguments>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_OP}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Input Text</arg>
+<arg>${Login_User_Email_Field}</arg>
+<arg>${useremail}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${Login_User_Email_Field}</arg>
+<arg>${useremail}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.416" endtime="20210728 14:23:07.416"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.416" endtime="20210728 14:23:07.416"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.416" endtime="20210728 14:23:07.416"></status>
+</kw>
+<kw name="Input Password" library="login_keywords">
+<arguments>
+<arg>${PASSWORD}</arg>
+</arguments>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_OP}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Input Text</arg>
+<arg>${Login_User_Pass_Field}</arg>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${Login_User_Pass_Field}</arg>
+<arg>${password}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.417" endtime="20210728 14:23:07.418"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.417" endtime="20210728 14:23:07.418"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.417" endtime="20210728 14:23:07.418"></status>
+</kw>
+<kw name="Continue" library="login_keywords">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_OP}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Click Button</arg>
+<arg>${Submit_Button}</arg>
+</arguments>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${Submit_Button}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.418" endtime="20210728 14:23:07.418"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.418" endtime="20210728 14:23:07.418"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.418" endtime="20210728 14:23:07.418"></status>
+</kw>
+<kw name="Welcome Page Should Be Open" library="login_keywords">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_OP}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//span[@id='myAccountTrigger']</arg>
+</arguments>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>xpath=//span[@id='myAccountTrigger']</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.419" endtime="20210728 14:23:07.419"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.419" endtime="20210728 14:23:07.419"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_OP}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Title Should Be</arg>
+<arg>${Manage_Account_title}</arg>
+</arguments>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current page title equals ``title``.</doc>
+<arguments>
+<arg>${Manage_Account_title}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.419" endtime="20210728 14:23:07.420"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.419" endtime="20210728 14:23:07.420"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.419" endtime="20210728 14:23:07.420"></status>
+</kw>
+<kw name="Go To Home Page" library="navigation_keywords" type="teardown">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${HomePage}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.421" endtime="20210728 14:23:07.421"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>${SHORT_DELAY}</arg>
+</arguments>
+<status status="NOT_RUN" starttime="20210728 14:23:07.421" endtime="20210728 14:23:07.421"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.421" endtime="20210728 14:23:07.422"></status>
+</kw>
+<doc>This is a logout and login scenario</doc>
+<tags>
+<tag>Login</tag>
+<tag>Logout</tag>
+<tag>ValidLogin</tag>
+</tags>
+<status status="PASS" starttime="20210728 14:23:07.400" endtime="20210728 14:23:07.423" critical="yes"></status>
+</test>
+<kw name="Close Application" library="login_keywords" type="teardown">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${RETRY_INT_OP}</arg>
+<arg>${SHORT_DELAY}</arg>
+<arg>Close All Browsers</arg>
+</arguments>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="NOT_RUN" starttime="20210728 14:23:07.428" endtime="20210728 14:23:07.428"></status>
+</kw>
+<status status="NOT_RUN" starttime="20210728 14:23:07.427" endtime="20210728 14:23:07.428"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.427" endtime="20210728 14:23:07.428"></status>
+</kw>
+<status status="PASS" starttime="20210728 14:23:07.042" endtime="20210728 14:23:07.428"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0">Critical Tests</stat>
+<stat pass="3" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0">InvalidLogin</stat>
+<stat pass="3" fail="0">Login</stat>
+<stat pass="1" fail="0">Logout</stat>
+<stat pass="1" fail="0">ValidLogin</stat>
+</tag>
+<suite>
+<stat pass="3" fail="0" id="s1" name="Login">Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
